@@ -1,10 +1,10 @@
-describe('TechBazaar POS Login', () => {
-  it('Login using staging creds', () => {
-    cy.visit('baseUrl')
+import LoginPage from '../Pages/login'
 
-    cy.get('#validationCustomEmail').type(Cypress.env('stagingEmail'))
-    cy.get('.w-100.btn.btn-primary').click()
-    cy.get('#validationCustomPassword').type(Cypress.env('stagingPassword'))
-    cy.get('.w-100.btn.btn-primary').click()
+describe('Login Module', () => {
+
+  const loginPage = new LoginPage()
+
+  it('Login with valid staging credentials', () => {
+    loginPage.login()
   })
 })
