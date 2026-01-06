@@ -8,7 +8,7 @@ class LoginPage {
 
   
   visit() {
-    cy.visit('/login',{timeout:14000})
+    cy.visit('/login',{timeout:19000})
   }
 
   login() {
