@@ -1,28 +1,29 @@
 class CustomerPage {
 
-  customersMenu = '#tooltip-anchor-Customers'
-  addCustomerBtn = 'button:contains("Add Customer")'
 
-  firstNameInput = 'input[name="firstName"]'
-  lastNameInput = 'input[name="lastName"]'
-  emailInput = 'input[name="email"]'
-  phoneInput = 'input[name="phone"]'
+  
+
+  custNameInput = 'input[name="customer_name"]'
+  custType='#customer-add-customer-type select'
+  custEmailInput = 'input[placeholder="example@mail.com"]'
+
+  phoneInput = 'input[placeholder="+92-3XX-XXXXXXX"]'
 
   saveBtn = 'button:contains("Save")'
-  successToast = '.toast, .alert-success'
-
+  
   openCustomersPage() {
-    cy.get(this.customersMenu).should('be.visible').click()
+    
+    cy.visit('/customer')
   }
 
   clickAddCustomer() {
     cy.contains('button', 'Add Customer').click()
   }
 
-  fillCustomerForm(firstName, lastName, email, phone) {
-    cy.get(this.firstNameInput).type(firstName)
-    cy.get(this.lastNameInput).type(lastName)
-    cy.get(this.emailInput).type(email)
+  fillCustomerForm(firstName,custType, custEmail, phone) {
+    cy.get(this.custNameInput).type(firstName)
+      cy.get(this.custType).select(custType) 
+    cy.get(this.custEmailInput).type(custEmail)
     cy.get(this.phoneInput).type(phone)
   }
 

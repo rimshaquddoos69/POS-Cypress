@@ -1,7 +1,8 @@
 class LoginPage {
 
-  emailInput = 'input[name="email"]'
-  passwordInput = 'input[name="password"]'
+  emailInput = '#validationCustomEmail'
+  passwordInput = '#validationCustomPassword'
+  continueBtn= '.w-100.btn.btn-primary'
   loginBtn = 'button[type="submit"]'
   dashboardIdentifier = '#tooltip-anchor-Reports'
 
@@ -15,13 +16,12 @@ class LoginPage {
     cy.get(this.emailInput)
       .should('be.visible')
       .type(Cypress.env('email'))
-
+    cy.get('.w-100.btn.btn-primary').click()
     cy.get(this.passwordInput)
-      .type(Cypress.env('password'), { log: false })
-
+      .type(Cypress.env('password'))
     cy.get(this.loginBtn).click()
 
-    // Assertion → confirms login success
+   
     cy.get(this.dashboardIdentifier, { timeout: 10000 })
       .should('be.visible')
   }

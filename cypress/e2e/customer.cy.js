@@ -51,16 +51,18 @@ describe('Customer Module', () => {
     loginPage.login()
   })
 
+
   it('Add new customer', () => {
-    const email = `qa_${Date.now()}@test.com`
+    
+    const custEmail = `qa_${Date.now()}@test.com`
 
     customerPage.openCustomersPage()
     customerPage.clickAddCustomer()
     customerPage.fillCustomerForm(
       'Rimsha',
-      'Quddoos',
-      email,
-      '03001234567'
+      'Individual',
+      custEmail,
+      '126054434'
     )
     customerPage.saveCustomer()
     customerPage.verifyCustomerAdded()

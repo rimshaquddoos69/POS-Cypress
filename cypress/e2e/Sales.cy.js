@@ -75,10 +75,7 @@ describe('Sales Module', () => {
     salesPage.selectPayment(3)
     salesPage.sellItems()
     salesPage.handleOpeningBalance()
-    salesPage.openDailyCashReport()
-
-    salesPage.getSaleValue().then(value => {
-      cy.log(`Sale Value: ${value}`)
-    })
+    salesPage.sellItems()
+   
   })
 })

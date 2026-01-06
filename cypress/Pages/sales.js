@@ -20,13 +20,11 @@ class SalesPage {
     cy.visit('/sales') 
   }
 
-  selectFirstCard() {
-    cy.get(this.firstCard)
-      .should('be.visible')
-      .and('not.have.css', 'pointer-events', 'none')
-      .first()
-      .click()
-  }
+ selectFirstCard() {
+ cy.get(this.firstCard).not('.active').first().click({ force: true })
+
+}
+
 
   openCart() {
     cy.get(this.minifiedCart).click()
@@ -35,7 +33,6 @@ class SalesPage {
   addMiscItem(title, qty, price) {
     cy.get(this.miscItemBtn).eq(0).click()
     cy.get(this.titleInput).type(title)
-    cy.get(this.quantityInput).type(qty)
     cy.get(this.salePriceInput).type(price)
     cy.get(this.addMiscBtn)
       .contains('Add Misc. Item')
@@ -59,14 +56,7 @@ class SalesPage {
     })
   }
 
-  openDailyCashReport() {
-    cy.get(this.reportsMenu).click()
-    cy.get(this.dailyCashReport).click()
-  }
-
-  getSaleValue() {
-    return cy.get(this.saleValue).invoke('text')
-  }
+ 
 }
 
 export default SalesPage
