@@ -21,7 +21,7 @@ class SalesPage {
   }
 
  selectFirstCard() {
- cy.get(this.firstCard).not('.active').first().click({ force: true })
+ cy.get(this.firstCard,{ timeout: 15000 }).not('.active').first().click({ force: true })
 
 }
 

@@ -1,17 +1,5 @@
 describe('Inventory', () => {
 
-  // beforeEach(() => {
-  //   // cy.session(
-  //   //   'staging-login',
-  //   //   () => {
-  //   //     cy.login()
-  //   //   },
-  //   //   {
-  //   //     cacheAcrossSpecs: true   
-  //   //   }
-  //   // )
-    
-  // })
 
   it('Add inventory successfully', () => {
     cy.visit('https://staging-seller.techbazaar.pk/login',{ timeout: 120000 })
